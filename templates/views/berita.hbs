@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Laman Berita</title>
+    <link rel="icon" href="/img/weather-icon.png">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="main-content">
+        {{>header}}
+        <h2>{{judul}}</h2>
+
+        <!-- Search form -->
+        <form action="/berita" method="GET">
+            <label for="search">Cari Berita Olahraga:</label>
+            <input type="text" id="search" name="q" placeholder="Masukkan kata kunci" value="{{query}}">
+            <button type="submit">Cari</button>
+        </form>
+
+        <div class="berita-list">
+            {{#each berita}}
+            <div class="berita-item">
+                <h3>{{title}}</h3>
+                <p>{{description}}</p>
+                <a href="{{url}}" target="_blank">Baca selengkapnya</a>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    {{>footer}}
+    <script src="/js/app.js"></script>
+</body>
+</html>
